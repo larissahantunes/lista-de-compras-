@@ -1,0 +1,20 @@
+[
+  {
+    "id": "8d2b6e40-d74f-4051-af1b-cc6b0d9954f7",
+    "nome": "café",
+    "quantidade": "1",
+    "comprado": true
+  },
+  {
+    "id": "bdba9fbd-eb50-4c57-99c2-8f6715db0add",
+    "nome": "pão",
+    "quantidade": "1",
+    "comprado": true
+  },
+  {
+    "id": "34ce9b56-41fb-4307-82f2-507d9181dff9",
+    "nome": "suco",
+    "quantidade": "2 l",
+    "comprado": false
+  }
+]

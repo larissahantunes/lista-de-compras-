@@ -1,0 +1,272 @@
+
+/* Cores principais do programa. */
+:root {
+    --verde: #237a57;
+    --verde-escuro: #18583f;
+    --fundo: #f2f7f3;
+    --texto: #202b25;
+    --suave: #68766e;
+    --borda: #e0e8e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+/* Limita a largura em telas grandes. */
+.container {
+    width: min(100% - 30px, 760px);
+    margin: 0 auto;
+    padding: 35px 0;
+}
+
+.cabecalho {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.icone {
+    font-size: 38px;
+}
+
+.etiqueta {
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin: 8px 0;
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.2;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.subtitulo {
+    color: var(--suave);
+    font-size: 14px;
+}
+
+.cartao {
+    background: white;
+    padding: 24px;
+    margin-bottom: 18px;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px #234b3310;
+}
+
+/* O formulário usa colunas em telas maiores. */
+#form-compra {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 140px auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--suave);
+    font-size: 13px;
+}
+
+input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font: inherit;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid #9acbb0;
+    border-color: var(--verde);
+}
+
+button {
+    min-height: 44px;
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 10px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.botao-adicionar {
+    background: var(--verde);
+    color: white;
+    font-weight: bold;
+}
+
+.botao-adicionar:hover {
+    background: var(--verde-escuro);
+}
+
+#mensagem {
+    color: var(--verde);
+    font-size: 14px;
+}
+
+.cabecalho-lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.contador {
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #e8f5ed;
+    color: var(--verde-escuro);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+#lista {
+    display: grid;
+    gap: 10px;
+    margin: 22px 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Cada produto vira uma linha organizada. */
+.item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+.item input[type="checkbox"] {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+    accent-color: var(--verde);
+    cursor: pointer;
+}
+
+.detalhes {
+    flex: 1;
+    min-width: 0;
+}
+
+.nome {
+    display: block;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.quantidade {
+    color: var(--suave);
+    font-size: 13px;
+}
+
+.item.comprado {
+    background: #f6faf7;
+}
+
+.item.comprado .nome {
+    color: #89948d;
+    text-decoration: line-through;
+}
+
+.botao-remover {
+    background: transparent;
+    color: #a33b3b;
+    font-size: 18px;
+}
+
+.botao-remover:hover {
+    background: #fff0f0;
+}
+
+.vazio {
+    padding: 20px 0;
+    color: var(--suave);
+    text-align: center;
+}
+
+.rodape-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid var(--borda);
+    color: var(--suave);
+    font-size: 13px;
+}
+
+.botao-texto {
+    background: transparent;
+    color: var(--verde-escuro);
+    font-weight: bold;
+}
+
+footer {
+    padding: 12px;
+    color: var(--suave);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Em celulares, os campos ficam empilhados. */
+@media (max-width: 600px) {
+    .container {
+        padding-top: 22px;
+    }
+
+    .cartao {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    #form-compra {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .campo:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .botao-adicionar {
+        width: 100%;
+    }
+}
+
+/* Em celulares bem estreitos, tudo fica em uma coluna. */
+@media (max-width: 360px) {
+    #form-compra {
+        grid-template-columns: 1fr;
+    }
+
+    .campo:first-child {
+        grid-column: auto;
+    }
+
+    .rodape-lista {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

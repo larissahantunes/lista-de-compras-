@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Permite adaptar a página a celulares e tablets. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Lista de Compras</title>
+
+    <!-- Importa o arquivo responsável pelo visual. -->
+    <link rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Importa o JavaScript depois que o HTML for carregado. -->
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="cabecalho">
+            <div class="icone">🛒</div>
+            <p class="etiqueta">ORGANIZE SUAS COMPRAS</p>
+            <h1>Minha lista de compras</h1>
+            <p class="subtitulo">
+                Tudo o que você precisa, em um só lugar.
+            </p>
+        </header>
+
+        <section class="cartao">
+            <h2>Adicionar produto</h2>
+
+            <form id="form-compra">
+                <div class="campo">
+                    <label for="nome">Nome do produto</label>
+                    <input id="nome" type="text"
+                        placeholder="Ex.: Leite" required>
+                </div>
+
+                <div class="campo">
+                    <label for="quantidade">Quantidade</label>
+                    <input id="quantidade" type="text"
+                        placeholder="Ex.: 2 litros" value="1">
+                </div>
+
+                <button class="botao-adicionar" type="submit">
+                    + Adicionar
+                </button>
+            </form>
+
+            <p id="mensagem" role="status"></p>
+        </section>
+
+        <section class="cartao">
+            <div class="cabecalho-lista">
+                <div>
+                    <h2>Sua lista</h2>
+                    <p class="subtitulo">
+                        Marque a caixa quando pegar o produto.
+                    </p>
+                </div>
+
+                <span id="contador" class="contador">0 itens</span>
+            </div>
+
+            <!-- O JavaScript coloca os produtos aqui. -->
+            <ul id="lista"></ul>
+
+            <p id="lista-vazia" class="vazio">
+                🧺 Sua lista está vazia. Adicione um produto!
+            </p>
+
+            <div class="rodape-lista">
+                <span id="resumo">0 comprados de 0 itens</span>
+                <button id="limpar-comprados" class="botao-texto"
+                        type="button">
+                    Remover comprados
+                </button>
+            </div>
+        </section>
+
+        <footer>
+            Feito para facilitar suas compras ✨
+        </footer>
+    </main>
+</body>
+</html>
